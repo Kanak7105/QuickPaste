@@ -7,12 +7,41 @@ export const LANGUAGES = [
   "bash", "json", "yaml", "markdown", "html", "css",
 ] as const;
 
+// Display name and download file extension for each language
+export const LANGUAGE_INFO: Record<(typeof LANGUAGES)[number], { label: string; ext: string }> = {
+  plaintext: { label: "Plain text", ext: "txt" },
+  javascript: { label: "JavaScript", ext: "js" },
+  typescript: { label: "TypeScript", ext: "ts" },
+  python: { label: "Python", ext: "py" },
+  java: { label: "Java", ext: "java" },
+  c: { label: "C", ext: "c" },
+  cpp: { label: "C++", ext: "cpp" },
+  csharp: { label: "C#", ext: "cs" },
+  go: { label: "Go", ext: "go" },
+  rust: { label: "Rust", ext: "rs" },
+  php: { label: "PHP", ext: "php" },
+  ruby: { label: "Ruby", ext: "rb" },
+  kotlin: { label: "Kotlin", ext: "kt" },
+  swift: { label: "Swift", ext: "swift" },
+  sql: { label: "SQL", ext: "sql" },
+  bash: { label: "Bash", ext: "sh" },
+  json: { label: "JSON", ext: "json" },
+  yaml: { label: "YAML", ext: "yaml" },
+  markdown: { label: "Markdown", ext: "md" },
+  html: { label: "HTML", ext: "html" },
+  css: { label: "CSS", ext: "css" },
+};
+
+export function languageInfo(lang: string) {
+  return LANGUAGE_INFO[lang as keyof typeof LANGUAGE_INFO] ?? LANGUAGE_INFO.plaintext;
+}
+
 export const EXPIRY_OPTIONS = [
-  { value: "10m", label: "10 minutes" },
-  { value: "1h", label: "1 hour" },
-  { value: "1d", label: "1 day" },
-  { value: "1w", label: "1 week" },
-  { value: "never", label: "Never" },
+  { value: "10m", label: "10 minutes", short: "10 min" },
+  { value: "1h", label: "1 hour", short: "1 hour" },
+  { value: "1d", label: "1 day", short: "1 day" },
+  { value: "1w", label: "1 week", short: "1 week" },
+  { value: "never", label: "Never", short: "Never" },
 ] as const;
 
 export const MAX_CONTENT_BYTES = 100 * 1024;

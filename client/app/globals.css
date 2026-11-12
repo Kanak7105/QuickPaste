@@ -6,6 +6,17 @@
 }
 
 body {
-  background: var(--color-zinc-950);
+  background-color: var(--color-zinc-950);
+  /* Soft emerald glow at the top so the dark page doesn't feel flat */
+  background-image: radial-gradient(
+    60rem 30rem at 50% -10rem,
+    color-mix(in oklab, var(--color-emerald-500) 9%, transparent),
+    transparent
+  );
+  background-repeat: no-repeat;
   color: var(--color-zinc-100);
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-emerald-500) 35%, transparent);
 }
