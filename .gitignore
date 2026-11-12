@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+
+# environment files (never commit secrets)
+.env
+.env.*
+!.env.example
+
+# build output
+.next/
+out/
+dist/
+build/
+next-env.d.ts
+*.tsbuildinfo
+
+# logs and OS files
+npm-debug.log*
+.DS_Store
+Thumbs.db
